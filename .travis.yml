@@ -1,0 +1,9 @@
+sudo: required 
+services: 
+  - docker
+
+before_install:
+  - docker build -t sgrand/docker-react -f Dockerfile.dev .
+
+  script: 
+   - dock run sgrand/docker-react npm run test -- --coverage
